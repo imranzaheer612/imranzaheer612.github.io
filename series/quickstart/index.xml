@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>quickstart on Build OS</title>
-    <link>https://imranzaheer612.github.io/series/quickstart/</link>
+    <link>https://imranzaheer612.github.io/meetme/series/quickstart/</link>
     <description>Recent content in quickstart on Build OS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Apr 2021 02:04:06 -0500</lastBuildDate><atom:link href="https://imranzaheer612.github.io/series/quickstart/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Apr 2021 02:04:06 -0500</lastBuildDate><atom:link href="https://imranzaheer612.github.io/meetme/series/quickstart/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Buld own 64-bit OS</title>
-      <link>https://imranzaheer612.github.io/blog/buildos/</link>
+      <link>https://imranzaheer612.github.io/meetme/blog/buildos/</link>
       <pubDate>Sat, 17 Apr 2021 02:04:06 -0500</pubDate>
       
-      <guid>https://imranzaheer612.github.io/blog/buildos/</guid>
+      <guid>https://imranzaheer612.github.io/meetme/blog/buildos/</guid>
       <description>This blog was actually an assignment given by our cow professor Dr Muhammad Imran Abeel.
 Build Your Own 64-bit Operating SystemToday i will show you how you can build your own 64-bit Operating System. But before the start of this tutorial you should have some basic knowldge of computer programming laguages. You should have the knowldge about the assembly language.
 Setting up the enviromentText EditorYou should have any text editor for writting and editting the code.</description>
