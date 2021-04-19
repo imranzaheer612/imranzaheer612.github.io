@@ -169,7 +169,7 @@ Buld Own 64 Bit Os - Build OS
     </h2>
     <div class="post-data">
         Apr 17, 2021 |
-        4 minutes read
+        5 minutes read
     </div>
     
     <div class="blog-share">
@@ -246,11 +246,11 @@ Buld Own 64 Bit Os - Build OS
 <p><img src="/blog/vscodepic.png" alt="vscode"></p>
 
 <h3 id="docker" class="anchor-link"><a href="#docker">Docker</a></h3>
-<p>Install <a href="https://docs.docker.com/docker-for-windows/install/">docker</a> from the website. But you shlould have WSL 2 backend. As mentioned in there prequisites tab.</p>
+<p>Install <a href="https://docs.docker.com/docker-for-windows/install/">docker</a> from the website. But you shlould have WSL 2 backend. As mentioned in there prequisites tab. Don&rsquo;t forget to set the path for the docker.</p>
 <p><img src="/blog/docker.png" alt="docker"></p>
 
 <h4 id="setting-up-wsl-2" class="anchor-link"><a href="#setting-up-wsl-2">Setting up WSL 2</a></h4>
-<p>Follow the following steps or can refer to this <a href="https://www.windowscentral.com/how-install-wsl2-windows-10">page</a>.</p>
+<p>Follow the following steps or can refer to this [page](<a href="https://www.windowscentral.com/how-install-wsl2-windows-10">https://www.windowscentral.com/how-install-wsl2-windows-10</a>. Also visit the <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">microsoft docs</a>.</p>
 <ul>
 <li>
 
@@ -277,10 +277,27 @@ Buld Own 64 Bit Os - Build OS
 <p>Download the WSL2 Kernel update.<br>
 Run the installer.<br>
 When prompted for elevated permissions, click yes.</p>
-<p>Once the installer has done its thing, you&rsquo;ll now have WSL2 successfully installed on your PC.</p>
+<ul>
+<li>
+
+<h5 id="set-the-deafult-version-of-the-wsl" class="anchor-link"><a href="#set-the-deafult-version-of-the-wsl">Set the deafult version of the wsl</a></h5>
+</li>
+</ul>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">wsl <span style="">--</span>set<span style="">-</span>default<span style="">-</span>version <span style="color:#40a070">2</span>
+</code></pre></div><p>Once the installer has done its thing, you&rsquo;ll now have WSL2 successfully installed on your PC.</p>
 
 <h3 id="qemu" class="anchor-link"><a href="#qemu">Qemu</a></h3>
-<p>Qemu is actually a virtual machine. You can download it from <a href="https://www.qemu.org/download/#windows">here</a>. In order to setup the qemu enviroment you can consider this <a href="https://dev.to/whaleshark271/using-qemu-on-windows-10-home-edition-4062">link</a>. You can skip the last step (installing ubuntu on qemu because we will make aour own OS 😃).</p>
+<p>Qemu is actually a virtual machine. You can download it from <a href="https://www.qemu.org/download/#windows">here</a>.</p>
+
+<h5 id="steps" class="anchor-link"><a href="#steps">Steps</a></h5>
+<ul>
+<li>Download Qemu and .iso</li>
+<li>Add Qemu path to environment variables settings</li>
+<li>Create an image</li>
+<li>Starting the VM</li>
+<li>Some problems you might encounter</li>
+</ul>
+<p>In order to setup the qemu enviroment you can consider this <a href="https://dev.to/whaleshark271/using-qemu-on-windows-10-home-edition-4062">link</a>. You can skip the last step (installing ubuntu on qemu because we will make aour own OS 😃).</p>
 <p><img src="/blog/qemu.jpg" alt="qemu"></p>
 
 <h2 id="building-os" class="anchor-link"><a href="#building-os">Building OS.</a></h2>
@@ -299,11 +316,16 @@ When prompted for elevated permissions, click yes.</p>
 </p>
 
 <h3 id="imp-building-commands" class="anchor-link"><a href="#imp-building-commands">Imp Building Commands</a></h3>
-<p>In this first vedio we will setup the Docker enviroment by making and docker image using the command</p>
+<br>
+
+<h4 id="1-make-an-image" class="anchor-link"><a href="#1-make-an-image">1. Make an Image</a></h4>
+<p>In this first vedio we will setup the Docker enviroment by making and docker image using the command.</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">  docker build buildenv <span style="">-</span>t myos<span style="">-</span>buildenv
 </code></pre></div><br>
 <br>
-<p>You will also required some of the basic build commands as used in the vedio.</p>
+
+<h4 id="2-run-the-image" class="anchor-link"><a href="#2-run-the-image">2. Run the image</a></h4>
+<p>After coding your OS you need to run the image by entering the buld enviroment.</p>
 <p>Enter build environment:</p>
 <ul>
 <li>Linux or MacOS:</li>
@@ -320,12 +342,17 @@ When prompted for elevated permissions, click yes.</p>
 </ul>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">docker run <span style="">--</span>rm <span style="">-</span>it <span style="">-</span>v <span style="color:#4070a0">&#34;${pwd}:/root/env&#34;</span> myos<span style="">-</span>buildenv
 </code></pre></div><br>
-* NOTE: If you are having trouble with an unshared drive, ensure your docker daemon has access to the drive you're development environment is in. For Docker Desktop, this is in "Settings > Shared Drives" or "Settings > Resources > File Sharing".
-Build for x86 (other architectures may come in the future):
+* NOTE: If you are having trouble with an unshared drive, ensure your docker daemon has access to the drive you're development environment is in. For Docker Desktop, this is in "Settings > Shared Drives" or "Settings > Resources > File Sharing".  
+<br>
+<br>
+
+<h4 id="3-build" class="anchor-link"><a href="#3-build">3. Build</a></h4>
+<p>Enter this build command.Build for x86 (other architectures may come in the future):</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">make build<span style="">-</span>x86_64
 </code></pre></div><p>To leave the build environment, enter &ldquo;exit&rdquo;.</p>
+<br>
 
-<h4 id="emulate" class="anchor-link"><a href="#emulate">Emulate</a></h4>
+<h4 id="4-emulate" class="anchor-link"><a href="#4-emulate">4. Emulate</a></h4>
 <p>After building the basic OS you can emulate the operating system using Qemu: (Don&rsquo;t forget to add qemu to your path!)</p>
 <ul>
 <li>Use the follwing command to emulate the OS.</li>
@@ -336,6 +363,8 @@ Build for x86 (other architectures may come in the future):
 <li>NOTE: When building your operating system, if changes to your code fail to compile, ensure your QEMU emulator has been closed, as this will block writing to kernel.iso.</li>
 </ul>
 <p>Alternatively, you should be able to load the operating system on a USB drive and boot into it when you turn on your computer. (I haven&rsquo;t actually tested this yet.)</p>
+<br>
+<br>
 
 <h3 id="build-32-bit-os" class="anchor-link"><a href="#build-32-bit-os">Build 32-bit OS</a></h3>
 <p>We will make the 32-bit OS based on the concept of the <strong>Real Mode Addressing</strong>. So thats why it will be easier to implement and later we can extend it to a 64-bit OS.</p>
