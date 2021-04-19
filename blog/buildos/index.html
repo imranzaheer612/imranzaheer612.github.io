@@ -259,7 +259,8 @@ Buld Own 64 Bit Os - Build OS
 </ul>
 <p>Open the power shell as admin and run this command</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">dism.exe <span style="">/</span>online <span style="">/</span>enable<span style="">-</span>feature <span style="">/</span>featurename<span style="">:</span>Microsoft<span style="">-</span>Windows<span style="">-</span>Subsystem<span style="">-</span>Linux <span style="">/</span>all <span style="">/</span>norestart
-</code></pre></div><ul>
+</code></pre></div><br>
+<ul>
 <li>
 
 <h5 id="enable-virtual-machine" class="anchor-link"><a href="#enable-virtual-machine">Enable Virtual Machine</a></h5>
@@ -267,7 +268,8 @@ Buld Own 64 Bit Os - Build OS
 </ul>
 <p>Open the power shell as admin and run this command</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">dism.exe <span style="">/</span>online <span style="">/</span>enable<span style="">-</span>feature <span style="">/</span>featurename<span style="">:</span>VirtualMachinePlatform <span style="">/</span>all <span style="">/</span>norestart
-</code></pre></div><ul>
+</code></pre></div><br>  
+<ul>
 <li>
 
 <h5 id="install-wsl-2-update" class="anchor-link"><a href="#install-wsl-2-update">Install WSL 2 Update</a></h5>
@@ -277,6 +279,7 @@ Buld Own 64 Bit Os - Build OS
 <p>Download the WSL2 Kernel update.<br>
 Run the installer.<br>
 When prompted for elevated permissions, click yes.</p>
+<br>  
 <ul>
 <li>
 
@@ -284,7 +287,8 @@ When prompted for elevated permissions, click yes.</p>
 </li>
 </ul>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">wsl <span style="">--</span>set<span style="">-</span>default<span style="">-</span>version <span style="color:#40a070">2</span>
-</code></pre></div><p>Once the installer has done its thing, you&rsquo;ll now have WSL2 successfully installed on your PC.</p>
+</code></pre></div><br>  
+<p>Once the installer has done its thing, you&rsquo;ll now have WSL2 successfully installed on your PC.</p>
 
 <h3 id="qemu" class="anchor-link"><a href="#qemu">Qemu</a></h3>
 <p>Qemu is actually a virtual machine. You can download it from <a href="https://www.qemu.org/download/#windows">here</a>.</p>
